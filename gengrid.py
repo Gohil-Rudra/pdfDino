@@ -4,12 +4,10 @@ PDF_FILE_TEMPLATE = """
 % Root
 1 0 obj
 <<
-  /AcroForm <<
-    /Fields [ ###FIELD_LIST### ]
-  >>
-  /Pages 2 0 R
-  /OpenAction 17 0 R
   /Type /Catalog
+  /OpenAction 17 0 R
+  /Pages 2 0 R
+  /AcroForm << /Fields [ ###FIELD_LIST### ] >> 				% /AcroForm is used for form fields 
 >>
 endobj
 
@@ -29,7 +27,7 @@ endobj
 ]
 endobj
 
-###FIELDS###
+###FIELDS### 					% what is this here !?
 
 %% Page 1
 16 0 obj
@@ -41,7 +39,7 @@ endobj
     0.0
     612.0
     792.0
-  ]
+  ] 							% isn't this redundant ?
   /MediaBox [
     0.0
     0.0
@@ -49,9 +47,8 @@ endobj
     792.0
   ]
   /Parent 2 0 R
-  /Resources <<
-  >>
-  /Rotate 0
+  /Resources <<>> 				% why he wrote this ?
+  /Rotate 0 % This too
   /Type /Page
 >>
 endobj
@@ -72,7 +69,7 @@ endobj
 
 42 0 obj
 << >>
-stream
+stream 				% stream is to hold data...
 
 // Hacky wrapper to work with a callback instead of a string 
 function setInterval(cb, ms) {
@@ -86,59 +83,34 @@ function rand() {
 	return rand_seed = rand_seed * 16807 % 2147483647;
 }
 
-// nr of unique rotations per piece
-var piece_rotations = [1, 2, 2, 2, 4, 4, 4];
+function clock_127_bit() {
+	// Read the specific taps natively using quick masks
+	var bit0 = rand_seed & 1;
+	var bit1 = (rand_seed & 2) >> 1;
+	var bit2 = (rand_seed & 4) >> 2;
+	var bit7 = (rand_seed & 128) >> 7;
+	
+	var new_bit = bit0 ^ bit1 ^ bit2 ^ bit7;
+	
+	// Advance the standard 31-bit generator math sequence
+	rand_seed = (rand_seed * 16807) % 2147483647;
+	if (rand_seed === 0) { rand_seed = 1; }
+	
+	return bit0;
+}
 
-// Piece data: [piece_nr * 32 + rot_nr * 8 + brick_nr * 2 + j]
-// with rot_nr between 0 and 4
-// with the brick number between 0 and 4
 // and j == 0 for X coord, j == 1 for Y coord
-var piece_data = [
-	// square block
-	0, 0, -1, 0, -1, -1, 0, -1, 
-	0, 0, 0, 0, 0, 0, 0, 0,
-	0, 0, 0, 0, 0, 0, 0, 0,
-	0, 0, 0, 0, 0, 0, 0, 0,
+var obstacle_data = [
+	
+	// Single Cactus
+	[0,0,  0,1,  -1,1,  1,1,  0,2],
 
-	// line block
-	0, 0, -2, 0, -1, 0, 1, 0,
-	0, 0, 0, 1, 0, -1, 0, -2,
-	0, 0, 0, 0, 0, 0, 0, 0,
-	0, 0, 0, 0, 0, 0, 0, 0,
+	// Double Cactus
+	[0,0,  2,0,  0,1,  1,1,  2,1,  -1,1,  3,1,  0,2,  2,2]
+];
 
-	// S-block
-	0, 0, -1, -1, 0, -1, 1, 0, 
-	0, 0, 0, 1, 1, 0, 1, -1, 
-	0, 0, 0, 0, 0, 0, 0, 0,
-	0, 0, 0, 0, 0, 0, 0, 0,
-
-	// Z-block
-	0, 0, -1, 0, 0, -1, 1, -1, 
-	0, 0, 1, 1, 1, 0, 0, -1, 
-	0, 0, 0, 0, 0, 0, 0, 0,
-	0, 0, 0, 0, 0, 0, 0, 0,
-
-	// L-block
-	0, 0, -1, 0, -1, -1, 1, 0, 
-	0, 0, 0, 1, 0, -1, 1, -1, 
-	0, 0, -1, 0, 1, 0, 1, 1, 
-	0, 0, -1, 1, 0, 1, 0, -1, 
-
-	// J-block
-	0, 0, -1, 0, 1, 0, 1, -1, 
-	0, 0, 0, 1, 0, -1, 1, 1, 
-	0, 0, -1, 1, -1, 0, 1, 0, 
-	0, 0, 0, 1, 0, -1, -1, -1, 
-
-	// T-block
-	0, 0, -1, 0, 0, -1, 1, 0,  
-	0, 0, 0, 1, 0, -1, 1, 0, 
-	0, 0, -1, 0, 0, 1, 1, 0, 
-	0, 0, -1, 0, 0, 1, 0, -1
-]
-
-var TICK_INTERVAL = 50;
-var GAME_STEP_TIME = 400;
+var TICK_INTERVAL = 50;  	// frames per-second
+var GAME_STEP_TIME = 50; 	// cactuses should move forward on every frame so...
 
 // Globals
 var pixel_fields = [];
@@ -147,31 +119,16 @@ var score = 0;
 var time_ms = 0;
 var last_update = 0;
 var interval = 0;
+var dino_x = 2;
+var dino_y = 0;
+var dino_velocity = 0;		// to calculate fallback and jumping i.e gravity
+var is_jumping = false; 	// to avoid double jumping 
+var ticks_since_last_cactus = 35; // to provide breathing room to the players 
+var MIN_COOLDOWN = 35;
 
-// Current piece
-var piece_type = rand() % 7;
-var piece_x = 0;
-var piece_y = 0;
-var piece_rot = 0;
-
-function spawn_new_piece() {
-	piece_type = rand() % 7;
-	piece_x = 4;
-	piece_y = 0;
-	piece_rot = 0;
-}
-
-function set_controls_visibility(state) {
-	this.getField("T_input").hidden = !state;
-	this.getField("B_left").hidden = !state;
-	this.getField("B_right").hidden = !state;
-	this.getField("B_down").hidden = !state;
-	this.getField("B_rotate").hidden = !state;
-}
 
 function game_init() {
-	spawn_new_piece();
-
+	
 	// Gather references to pixel field objects
 	// and initialize game state
 	for (var x = 0; x < ###GRID_WIDTH###; ++x) {
@@ -196,10 +153,54 @@ function game_init() {
 	set_controls_visibility(true);
 }
 
-function game_update() {
-	if (time_ms - last_update >= GAME_STEP_TIME) {
-		lower_piece();
-		last_update = time_ms;
+function game_update() { 
+	ticks_since_last_cactus++;
+	
+	// Shift the entire matrix left by 1 column
+	for (var x = 0; x < ###GRID_WIDTH### - 1; x++) {
+		for (var y = 0; y < ###GRID_HEIGHT###; y++) {
+			field[x][y] = field[x + 1][y];
+		}
+	}
+
+	// Clear out the far-right column
+	for (var y = 0; y < ###GRID_HEIGHT###; ++y) {
+		field[###GRID_WIDTH### - 1][y] = 0;
+	}
+	// cactus reached column 1 so give the damn point !
+	if (field[1][0] === 1) {
+		score++;
+		draw_updated_score(); 
+	}
+	
+	var b1 = clock_127_bit();
+	var b2 = clock_127_bit();
+	var b3 = clock_127_bit();
+	var spawn_window = (b1 << 2) | (b2 << 1) | b3;
+
+	if (spawn_window === 0 && ticks_since_last_cactus >= MIN_COOLDOWN) {
+		ticks_since_last_cactus = 0; // Trigger the cooldown lock
+
+		// Roll a 4th bit right now to choose obstacle variant type
+		var type_bit = clock_127_bit();
+		var obstacle_idx = (type_bit === 1) ? 1 : 0; // 0 = Single, 1 = Double
+
+		var shape = obstacle_data[obstacle_idx];
+		var blocks_count = shape.length / 2;
+
+		// Map relative brick coordinates onto the far-right side of the canvas
+		for (var p = 0; p < blocks_count; p++) {
+			var x_off = shape[p * 2 + 0];
+			var y_off = shape[p * 2 + 1];
+
+			var real_x = (###GRID_WIDTH### - 1) + x_off;
+			var real_y = 0 + y_off;
+
+			// Write into array bounds safely
+			if (real_x >= 0 && real_x < ###GRID_WIDTH### && real_y >= 0 && real_y < ###GRID_HEIGHT###) {
+				field[real_x][real_y] = 1;
+			}
+		}
 	}
 }
 
@@ -208,150 +209,40 @@ function game_over() {
 	app.alert(`Game over! Score: ${score}\nRefresh to restart.`);
 }
 
-function rotate_piece() {
-	piece_rot++;
-	if (piece_rot >= piece_rotations[piece_type]) {
-		piece_rot = 0;
+
+function check_collision() {
+	if (field[dino_x][dino_y] === 1){
+		game_over();
+		return;
 	}
-
-	// If we're now out of bounds, undo the rotation
-	var illegal = false;
-	for (var square = 0; square < 4; ++square) {
-		var x_off = piece_data[piece_type * 32 + piece_rot * 8 + square * 2 + 0];
-		var y_off = piece_data[piece_type * 32 + piece_rot * 8 + square * 2 + 1];
-
-		var abs_x = piece_x + x_off;
-		var abs_y = piece_y + y_off;
-
-		if (abs_x < 0 || abs_y < 0 || abs_x >= ###GRID_WIDTH### || abs_y >= ###GRID_HEIGHT###) {
-			illegal = true;
-			break;	
-		}
-	}
-	if (illegal) {
-		piece_rot--;
-		if (piece_rot < 0) {
-			piece_rot = piece_rotations[piece_type] - 1;
-		}
-	}
-}
-
-function is_side_collision() {
-	for (var square = 0; square < 4; ++square) {
-		var x_off = piece_data[piece_type * 32 + piece_rot * 8 + square * 2 + 0];
-		var y_off = piece_data[piece_type * 32 + piece_rot * 8 + square * 2 + 1];
-
-		var abs_x = piece_x + x_off;
-		var abs_y = piece_y + y_off;
-
-		// collision with walls
-		if (abs_x < 0 || abs_x >= ###GRID_WIDTH###) {
-			return true;
-		}
-
-		// collision with field blocks
-		if (field[abs_x][abs_y]) {
-			return true;
-		}
-	}
-	return false;
 }
 
 function handle_input(event) {
-	switch (event.change) {
-		case 'w': rotate_piece(); break;
-		case 'a': move_left(); break;
-		case 'd': move_right(); break;
-		case 's': lower_piece(); break;
+	if (event.change === 'w' || event.change === ' ') {
+		jump();
 	}
 }
 
-function move_left() {
-	piece_x--;
-	if (is_side_collision()) {
-		piece_x++;
+function jump() {
+	if (dino_y === 0){
+		dino_velocity = 3;
 	}
 }
 
-function move_right() {
-	piece_x++;
-	if (is_side_collision()) {
-		piece_x--;
+function update_player_physics() {
+	// If we have vertical momentum (jumping or falling), update the position
+	if (dino_velocity !== 0 || dino_y > 0) {
+		dino_y += dino_velocity;
+		dino_velocity -= 1; // Pull down by gravity
+	}
+	
+	// If we touch or pass the ground line, land safely
+	if (dino_y <= 0) {
+		dino_y = 0;
+		dino_velocity = 0;
 	}
 }
 
-function check_for_filled_lines() {
-	for (var row = 0; row < ###GRID_HEIGHT###; ++row) {
-		var fill_count = 0;
-		for (var column = 0; column < ###GRID_WIDTH###; ++column) {
-			fill_count += field[column][row];
-		}
-		if (fill_count == ###GRID_WIDTH###) {
-			// increase score
-			score++;
-			draw_updated_score();
-
-			// remove line (shift down)
-			for (var row2 = row; row2 > 0; row2--) {
-				for (var column2 = 0; column2 < ###GRID_WIDTH###; ++column2) {
-					field[column2][row2] = field[column2][row2-1];
-				}
-			}
-
-		}
-	}
-}
-
-function lower_piece() {
-	piece_y++;
-
-	var collision = false;
-	for (var square = 0; square < 4; ++square) {
-		var x_off = piece_data[piece_type * 32 + piece_rot * 8 + square * 2 + 0];
-		var y_off = piece_data[piece_type * 32 + piece_rot * 8 + square * 2 + 1];
-
-		var abs_x = piece_x + x_off;
-		var abs_y = piece_y + y_off;
-
-		if (abs_x < 0 || abs_y < 0 || abs_x >= ###GRID_WIDTH### || abs_y >= ###GRID_HEIGHT###) {
-			collision = true;
-			break;	
-		}
-
-		if (abs_y >= ###GRID_HEIGHT### || field[abs_x][abs_y]) {
-			collision = true;
-			break;
-		}
-	}
-
-	if (collision) {
-		// if at the top, game over
-		if (piece_y == 1) {
-			game_over();
-			return;
-		}
-
-		// add to field
-		piece_y--;
-		for (var square = 0; square < 4; ++square) {
-			var x_off = piece_data[piece_type * 32 + piece_rot * 8 + square * 2 + 0];
-			var y_off = piece_data[piece_type * 32 + piece_rot * 8 + square * 2 + 1];
-
-			var abs_x = piece_x + x_off;
-			var abs_y = piece_y + y_off;
-
-			if (abs_x < 0 || abs_y < 0 || abs_x >= ###GRID_WIDTH### || abs_y >= ###GRID_HEIGHT###) {
-				// TODO: it is out of bounds, we should nudge it inwards?
-				continue;
-			}
-
-			field[abs_x][abs_y] = true;
-		}
-
-		check_for_filled_lines();
-		spawn_new_piece();
-	}
-}
 
 function draw_updated_score() {
 	this.getField("T_score").value = `Score: ${score}`;
@@ -372,26 +263,15 @@ function draw_field() {
 	}
 }
 
-function draw_current_piece() {
-	for (var square = 0; square < 4; ++square) {
-		var x_off = piece_data[piece_type * 32 + piece_rot * 8 + square * 2 + 0];
-		var y_off = piece_data[piece_type * 32 + piece_rot * 8 + square * 2 + 1];
-
-		var abs_x = piece_x + x_off;
-		var abs_y = piece_y + y_off;
-
-		set_pixel(abs_x, abs_y, 1);
-	}
-}
-
 function draw() {
 	draw_field();
-	draw_current_piece();
+	set_pixel(dino_x, dino_y, 1);
 }
 
 function game_tick() {
-	time_ms += TICK_INTERVAL;
+	update_player_physics();
 	game_update();
+	check_collision();
 	draw();
 }
 
@@ -430,26 +310,27 @@ trailer
 %%EOF
 """
 
+# To Create the screen of game
 PLAYING_FIELD_OBJ = """
 ###IDX### obj
 <<
   /FT /Btn
-  /Ff 1
-  /MK <<
-    /BG [
+  /Ff 1 				% Makes the Button ReadOnly !
+  /MK << 				% Background field color 
+    /BG [ 				% Background color
       0.8
     ]
-    /BC [
+    /BC [ 				% Border Color
       0 0 0
     ]
   >>
-  /Border [ 0 0 1 ]
+  /Border [ 0 0 1 ] 	% Border-corner radius(h & v) and width 
   /P 16 0 R
   /Rect [
-    ###RECT###
+    ###RECT### 			% position and size
   ]
-  /Subtype /Widget
-  /T (playing_field)
+  /Subtype /Widget 		% Widget are for Buttons and Text whereas Screen is for Audio & Video
+  /T (playing_field)	% Z 0 R is hardcoded memory address but we can use this strings to call this object , its designed for humans !
   /Type /Annot
 >>
 endobj
@@ -584,8 +465,9 @@ endobj
 # p1 = PIXEL_OBJ.replace("###IDX###", "50 0").replace("###COLOR###","1 0 0").replace("###RECT###", "460 700 480 720")
 
 PX_SIZE = 20
-GRID_WIDTH = 10
-GRID_HEIGHT = 20
+# for rectangle
+GRID_WIDTH = 20
+GRID_HEIGHT = 10
 GRID_OFF_X = 200
 GRID_OFF_Y = 350
 
@@ -656,14 +538,7 @@ def add_text(label, name, x, y, width, height, js):
 	add_field(text)
 
 
-add_button("<", "B_left", GRID_OFF_X + 0, GRID_OFF_Y - 70, 50, 50, "move_left();")
-add_button(">", "B_right", GRID_OFF_X + 60, GRID_OFF_Y - 70, 50, 50, "move_right();")
-add_button("\\\\/", "B_down", GRID_OFF_X + 30, GRID_OFF_Y - 130, 50, 50, "lower_piece();")
-add_button("SPIN", "B_rotate", GRID_OFF_X + 140, GRID_OFF_Y - 70, 50, 50, "rotate_piece();")
-
 add_button("Start game", "B_start", GRID_OFF_X + (GRID_WIDTH*PX_SIZE)/2-50, GRID_OFF_Y + (GRID_HEIGHT*PX_SIZE)/2-50, 100, 100, "game_init();")
-
-
 add_text("Type here for keyboard controls (WASD)", "T_input", GRID_OFF_X + 0, GRID_OFF_Y - 200, GRID_WIDTH*PX_SIZE, 50, "handle_input(event);")
 
 add_text("Score: 0", "T_score", GRID_OFF_X + GRID_WIDTH*PX_SIZE+10, GRID_OFF_Y + GRID_HEIGHT*PX_SIZE-50, 100, 50, "")
@@ -673,6 +548,6 @@ filled_pdf = filled_pdf.replace("###FIELD_LIST###", " ".join([f"{i} 0 R" for i i
 filled_pdf = filled_pdf.replace("###GRID_WIDTH###", f"{GRID_WIDTH}")
 filled_pdf = filled_pdf.replace("###GRID_HEIGHT###", f"{GRID_HEIGHT}")
 
-pdffile = open("out.pdf","w")
+pdffile = open("out_new.pdf","w")
 pdffile.write(filled_pdf)
 pdffile.close()
