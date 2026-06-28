@@ -25,7 +25,7 @@ A huge thank you to **@deadt** and everyone in the **ADT Discord** for their hel
 - Thomas Rhinsma — **PDFtris**
 - ADT — **Flappy Bird in PDF**
 - @deadt
-- [Members of the ADT Discord community](discord.gg/TKNuBS7X28)
+- [Members of the ADT Discord community](https://discord.com/invite/TKNuBS7X28)
 
 ## 📜 License
 
