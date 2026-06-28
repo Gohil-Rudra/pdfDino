@@ -5123,6 +5123,7 @@ var piece_rotations = [1, 2, 2, 2, 4, 4, 4];
 // with rot_nr between 0 and 4
 // with the brick number between 0 and 4
 // and j == 0 for X coord, j == 1 for Y coord
+
 var piece_data = [
 	// square block
 	0, 0, -1, 0, -1, -1, 0, -1, 
@@ -5168,7 +5169,7 @@ var piece_data = [
 ]
 
 var TICK_INTERVAL = 50;
-var GAME_STEP_TIME = 400;
+var GAME_STEP_TIME = 500;
 
 // Globals
 var pixel_fields = [];
@@ -5200,6 +5201,7 @@ function set_controls_visibility(state) {
 }
 
 function game_init() {
+    this.getField("T_input").setFocus();
 	spawn_new_piece();
 
 	// Gather references to pixel field objects

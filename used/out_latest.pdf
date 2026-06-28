@@ -1,0 +1,427 @@
+
+%PDF-1.6
+
+% Root
+1 0 obj
+<<
+  /AcroForm <<
+    /Fields [ 50 0 R 51 0 R 52 0 R 53 0 R 54 0 R 55 0 R 56 0 R 57 0 R ]
+  >>
+  /Pages 2 0 R
+  /OpenAction 17 0 R
+  /Type /Catalog
+>>
+endobj
+
+2 0 obj
+<<
+  /Count 1
+  /Kids [
+    16 0 R
+  ]
+  /Type /Pages
+>>
+
+%% Annots Page 1 (also used as overall fields list)
+21 0 obj
+[
+  50 0 R 51 0 R 52 0 R 53 0 R 54 0 R 55 0 R 56 0 R 57 0 R
+]
+endobj
+
+
+50 0 obj
+<<
+  /FT /Tx
+  /Ff 4096
+  /MK <<
+    /BG [0 0 0]
+    /BC [1 1 1]
+  >>
+  /DA (/Courier 10 Tf 1 1 1 rg)
+  /P 16 0 R
+  /Rect [
+    200 350 1000 600
+  ]
+  /Subtype /Widget
+  /T (SCREEN)
+  /Type /Annot
+>>
+endobj
+
+51 0 obj
+<< >>
+stream
+game_init();
+endstream
+endobj
+
+52 0 obj
+<<
+  /BBox [ 0.0 0.0 100 100 ]
+  /FormType 1
+  /Matrix [ 1.0 0.0 0.0 1.0 0.0 0.0]
+  /Resources <<
+    /Font <<
+      /HeBo 10 0 R
+    >>
+    /ProcSet [ /PDF /Text ]
+  >>
+  /Subtype /Form
+  /Type /XObject
+>>
+stream
+q
+0.75 g
+0 0 100 100 re
+f
+Q
+q
+1 1 100 100 re
+W
+n
+BT
+/HeBo 12 Tf
+0 g
+10 8 Td
+(Start game) Tj
+ET
+Q
+endstream
+endobj
+
+53 0 obj
+<<
+  /A <<
+	  /JS 51 0 R
+	  /S /JavaScript
+	>>
+  /AP <<
+    /N 52 0 R
+  >>
+  /F 4
+  /FT /Btn
+  /Ff 65536
+  /MK <<
+    /BG [
+      0.75
+    ]
+    /CA (###LABEL###)
+  >>
+  /P 16 0 R
+  /Rect [
+    550.0 425.0 650.0 525.0
+  ]
+  /Subtype /Widget
+  /T (B_start)
+  /Type /Annot
+>>
+endobj
+
+54 0 obj
+<< >>
+stream
+handle_input(event);
+endstream
+endobj
+
+55 0 obj
+<<
+	/AA <<
+		/K <<
+			/JS 54 0 R
+			/S /JavaScript
+		>>
+	>>
+	/F 4
+	/FT /Tx
+	/MK <<
+	>>
+	/MaxLen 0
+	/P 16 0 R
+	/Rect [
+		200 150 1000 200
+	]
+	/Subtype /Widget
+	/T (T_input)
+	/V (Type here for keyboard controls (WASD))
+	/Type /Annot
+>>
+endobj
+
+56 0 obj
+<< >>
+stream
+
+endstream
+endobj
+
+57 0 obj
+<<
+	/AA <<
+		/K <<
+			/JS 56 0 R
+			/S /JavaScript
+		>>
+	>>
+	/F 4
+	/FT /Tx
+	/MK <<
+	>>
+	/MaxLen 0
+	/P 16 0 R
+	/Rect [
+		1010 550 1110 600
+	]
+	/Subtype /Widget
+	/T (T_score)
+	/V (Score: 0)
+	/Type /Annot
+>>
+endobj
+
+
+%% Page 1
+16 0 obj
+<<
+  /Annots 21 0 R
+  /Contents 3 0 R
+  /CropBox [
+    0.0
+    0.0
+    612.0
+    792.0
+  ]
+  /MediaBox [
+    0.0
+    0.0
+    612.0
+    792.0
+  ]
+  /Parent 2 0 R
+  /Resources <<
+  >>
+  /Rotate 0
+  /Type /Page
+>>
+endobj
+
+3 0 obj
+<< >>
+stream
+endstream
+endobj
+
+17 0 obj
+<<
+  /JS 42 0 R
+  /S /JavaScript
+>>
+endobj
+
+
+42 0 obj
+<< >>
+stream
+
+// Hacky wrapper to work with a callback instead of a string 
+
+function setInterval(cb, ms) {
+	evalStr = "(" + cb.toString() + ")();";
+	return app.setInterval(evalStr, ms);
+}
+
+function clearFrameBuffer(HEIGHT,WIDTH)
+{
+    for (let y = 0; y < HEIGHT; y++){
+        FRAME_BUFFER[y] = [];
+
+        for (let x = 0; x < WIDTH; x++){
+            FRAME_BUFFER[y][x] = ' ';
+        }
+    }    
+}
+
+var CACTUS = `
+    ,*-.
+    |  |
+,.  |  |
+| |_|  | ,.
+\`---.  |_| |
+    |  .--\`
+    |  |
+    |  |
+`;
+
+CACTUS = CACTUS.split('
+');
+var CACTUS_COORDINATES = [];
+var CACTUS_SPRITE = []; 
+
+for (let y = 0; y < CACTUS.length; y++)
+{
+    for (let x = 0; x < CACTUS[y].length; x++)
+    {
+        if (CACTUS[y][x] !== ' ')
+        {
+            CACTUS_COORDINATES.push([
+                x,
+                y,
+                CACTUS[y][x]
+            ]);
+        }
+    }
+}
+
+
+var minX = Infinity;
+var minY = Infinity;
+
+for (let i = 0; i < CACTUS_COORDINATES.length; i++)
+{
+    minX = Math.min(minX, CACTUS_COORDINATES[i][0]);
+    minY = Math.min(minY, CACTUS_COORDINATES[i][1]);
+}
+
+
+
+for (let i = 0; i < CACTUS_COORDINATES.length; i++)
+{
+    let x = CACTUS_COORDINATES[i][0] - minX;
+    let y = CACTUS_COORDINATES[i][1] - minY;
+    let ch = CACTUS_COORDINATES[i][2];
+
+    CACTUS_SPRITE.push([x, y, ch]);
+}
+
+function drawCACTUS(xNew)
+{
+    for (let i = 0; i < CACTUS_SPRITE.length; i++)
+    {
+        let x  = CACTUS_SPRITE[i][0];
+        let y  = CACTUS_SPRITE[i][1];
+        let ch = CACTUS_SPRITE[i][2];
+
+        let px = xNew + x;
+
+        if (
+            px >= 0 &&
+            px < FRAME_BUFFER[0].length &&
+            y >= 0 &&
+            y < FRAME_BUFFER.length
+        )
+        {
+            FRAME_BUFFER[y][px] = ch;
+        }
+    }
+}
+
+function framebufferToString()
+{
+    let output = "";
+
+    for (let y = 0; y < FRAME_BUFFER.length; y++)
+    {
+        output += FRAME_BUFFER[y].join("") + "";
+    }
+
+    return output;
+}
+
+
+var cactusX = 50; // for now lets say it will move from position 50
+var FRAME_BUFFER = [];
+var score = 0;
+var time_ms = 0;
+var last_update = 0;
+var interval = 0;
+var TICK_INTERVAL = 50;
+var GAME_STEP_TIME = 400;
+
+function set_controls_visibility(state) {
+	this.getField("T_input").hidden = !state;
+	this.getField("B_up").hidden = !state;
+}
+
+var HEIGHT;
+var WIDTH;
+
+function game_init() {
+
+	HEIGHT = 250;
+	WIDTH = 800;
+	clearFrameBuffer(HEIGHT,WIDTH);
+	last_update = time_ms;
+	score = 0;
+
+	// Start timer
+	interval = setInterval(game_tick, TICK_INTERVAL);
+
+	// Hide start button
+	this.getField("B_start").hidden = true;
+
+	// Show input box and controls
+	set_controls_visibility(true);
+}
+
+function game_over() {
+	app.clearInterval(interval);
+	app.alert(`Game over! Score: ${score}
+Refresh to restart.`);
+}
+
+function draw_updated_score() {
+	this.getField("T_score").value = `Score: ${score}`;
+}
+
+function render()
+{
+    var screen = this.getField("SCREEN");
+
+    if (!screen)
+        return;
+
+    screen.value = framebufferToString();
+}
+
+function game_tick(){
+    time_ms += TICK_INTERVAL;
+    clearFrameBuffer(HEIGHT,WIDTH);
+    drawCACTUS(cactusX);
+    render();
+    cactusX--;
+}
+
+// Hide controls to start with
+set_controls_visibility(false);
+
+// Zoom to fit (on FF)
+app.execMenuItem("FitPage");
+
+endstream
+endobj
+
+
+18 0 obj
+<<
+  /JS 43 0 R
+  /S /JavaScript
+>>
+endobj
+
+
+43 0 obj
+<< >>
+stream
+
+
+
+endstream
+endobj
+
+trailer
+<<
+  /Root 1 0 R
+>>
+
+%%EOF

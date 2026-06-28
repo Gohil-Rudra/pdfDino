@@ -1,0 +1,102 @@
+%PDF-1.4
+
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R /AcroForm 6 0 R /OpenAction 12 0 R >>
+endobj
+
+2 0 obj
+<< /Type /Pages /Count 1 /Kids [3 0 R] >>
+endobj
+
+3 0 obj
+<< /Type /Page /Parent 2 0 R
+   /MediaBox [0 0 612 792]
+   /Resources << /Font << /F1 5 0 R >> >>
+   /Contents 4 0 R
+   /Annots [7 0 R]
+>>
+endobj
+
+4 0 obj
+<< /Length 53 >>
+stream
+BT /F1 12 Tf 250 692 Td (Completely normal pdf) Tj ET
+endstream
+endobj
+
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+
+6 0 obj
+<< /Fields [7 0 R] /DR << /Font << /F1 5 0 R >> >> >>
+endobj
+
+7 0 obj
+<< /Type /Annot /Subtype /Widget
+   /FT /Btn
+   /Ff 65536
+   /T (BirdBtn)
+   /Rect [50 580 138 665]
+   /AP << /N 8 0 R >>
+   /MK << /I 8 0 R /TP 1 >>
+   /BS << /W 0 >>
+   /P 3 0 R
+>>
+endobj
+
+8 0 obj
+<< /Type /XObject /Subtype /Form
+   /BBox [0 0 88 85]
+   /Resources << /XObject << /Im0 9 0 R >> >>
+   /Length 28 >>
+stream
+q 88 0 0 85 0 0 cm /Im0 Do Q
+endstream
+endobj
+
+9 0 obj
+<< /Type /XObject /Subtype /Image
+   /Width 88 /Height 85
+   /ColorSpace /DeviceRGB /BitsPerComponent 8
+   /SMask 10 0 R
+   /Filter [/ASCII85Decode /FlateDecode]
+   /Length 302 >>
+stream
+GhVQ=0b2)D$in*+Aa.X=&*a+lC_]Sf'ET+2bG,;i&f(PWmq_6[T-TF(Ym'?R!s]>1HEZ]Ifn@8N6X%BY!s]=u,R4f!3,mfkJHH,e*-sW(Eo4rh",E7bOokq!jUV07s(/CjEu\quNC/&JaSVMqD25CY56hZ<XrU,.7_`$`n>o!g2@f==jHu`#[2o77F5Xj-Y<u'nFD,r[>0Z"C,WKc$^k"kCG8Ul1,!5FCF6!n]KEDGhnc*X2gcG`N*;Z+_q#?N[#7gK%SuUthJ\rI1@`!ZuLUeEtgc092^gXW,'o-cL:9D;T>Q
+endstream
+endobj
+
+10 0 obj
+<< /Type /XObject /Subtype /Image
+   /Width 88 /Height 85
+   /ColorSpace /DeviceGray
+   /BitsPerComponent 8
+   /Filter [/ASCII85Decode /FlateDecode]
+   /Length 167 >>
+stream
+GhVQ:5n8E!#XhPXIq_&228D0s>!Mnu2OTdp7(nVV67gpI<:+BY]*%eu\`)Q-mcB1sE1':h\<X[jpYf.X4b)70SoaUFh"?'8bVI6+jeMe_>hhnP[D1e6G6_^!_jtp3r>^#n5FL7*ro@D1K",.]cGoOfb'oB:bAfK8"<bHB?2
+endstream
+endobj
+
+11 0 obj
+<<>>
+stream
+
+app.alert("Hello");
+app.alert(this.getField("BirdBtn") ? "Here" : "Not Here");
+
+endstream
+endobj
+
+12 0 obj
+<<
+  /JS 11 0 R
+  /S /JavaScript
+>>
+endobj
+
+trailer
+<< /Size 13 /Root 1 0 R >>
+
+%%EOF

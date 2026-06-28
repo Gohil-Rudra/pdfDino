@@ -1,0 +1,74 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R /AcroForm 6 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Count 1 /Kids [3 0 R] >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R
+   /MediaBox [0 0 612 792]
+   /Resources << /Font << /F1 5 0 R >> >>
+   /Contents 4 0 R
+   /Annots [7 0 R]
+>>
+endobj
+4 0 obj
+<< /Length 53 >>
+stream
+BT /F1 12 Tf 250 692 Td (Completely normal pdf) Tj ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+6 0 obj
+<< /Fields [7 0 R] /DR << /Font << /F1 5 0 R >> >> >>
+endobj
+7 0 obj
+<< /Type /Annot /Subtype /Widget
+   /FT /Btn
+   /Ff 65536
+   /T (BirdBtn)
+   /Rect [50 580 149 675]
+   /AP << /N 8 0 R >>
+   /MK << /I 8 0 R /TP 1 >>
+   /BS << /W 0 >>
+   /P 3 0 R
+>>
+endobj
+8 0 obj
+<< /Type /XObject /Subtype /Form
+   /BBox [0 0 99 95]
+   /Resources << /XObject << /Im0 9 0 R >> >>
+   /Length 28 >>
+stream
+q 99 0 0 95 0 0 cm /Im0 Do Q
+endstream
+endobj
+9 0 obj
+<< /Type /XObject /Subtype /Image
+   /Width 99 /Height 95
+   /ColorSpace /DeviceRGB /BitsPerComponent 8
+   /SMask 10 0 R
+   /Filter [/ASCII85Decode /FlateDecode]
+   /Length 425 >>
+stream
+GhVQ?5n:aS&-Yo!kl&idZFVg2-50Pe$K]OT`*.U2Tn0YXD+\BjUS;('4YE`8;h6D,o*h[LYQ7[R8dWs2fRTqdJH>u^eDR;uVIuPeeMOWt+Xg0tdsb,d5_/t?$ImHo\Mn4gXUJ2n\a9nBF<%4[U!DKln$?!NTAf5U:cEpiZW*!8q`PSAe552$!X/oF-r?R%JHAgR2,khtTKpI$K*#$Z<E#PkK0%Tq-r;Wt4"a>[6abhR"Y,iH'WCeHp:3`WQ:mn=#M&ZKT/B0oFW[P"U&%H2.m"6j'Mp*Z#[U.,C)3c=.qDGYT]89H!gU0]9T((OFGh)7;uE3$s1elI_?LTT96F((-;"FK'IZeN5_/t?$5=mbTKn&0"UYql:nU&g^=%*"<1ngC^Rqi=/%tYmBR2.)LRPAkOPOC0j`Y!&Wm=abWL"sM
+endstream
+endobj
+10 0 obj
+<< /Type /XObject /Subtype /Image
+   /Width 99 /Height 95
+   /ColorSpace /DeviceGray
+   /BitsPerComponent 8
+   /Filter [/ASCII85Decode /FlateDecode]
+   /Length 257 >>
+stream
+GhVQ<_%),@$j9E+s/3IJ%i\V<b8?.91Rp9u?6s7f>'k%i?V-/H-Yt1[&a=t>b3]cb?;L2.<Jdu\-LkFl6GspScIF)N@IoXk,%dW@FP!<Vr8AX`-j_^sKEr/uKS\.a'Cd%SM`$:rWC#O6E"ZJ9PmI/E,UM$7$`VJbpjdhJP7dSs38.:CaJ9YN+sPCUm;-T$6D2HU\50_f=<CL[69G2k7#2Bt63Jfir?MLXWPiV8jW.@sLC=!9B^sWGkO'S]!s#HPW;
+endstream
+endobj
+trailer
+<< /Size 11 /Root 1 0 R >>
+startxref
+%%EOF

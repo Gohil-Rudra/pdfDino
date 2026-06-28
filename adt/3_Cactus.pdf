@@ -1,0 +1,74 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R /AcroForm 6 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Count 1 /Kids [3 0 R] >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R
+   /MediaBox [0 0 612 792]
+   /Resources << /Font << /F1 5 0 R >> >>
+   /Contents 4 0 R
+   /Annots [7 0 R]
+>>
+endobj
+4 0 obj
+<< /Length 53 >>
+stream
+BT /F1 12 Tf 250 692 Td (Completely normal pdf) Tj ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+6 0 obj
+<< /Fields [7 0 R] /DR << /Font << /F1 5 0 R >> >> >>
+endobj
+7 0 obj
+<< /Type /Annot /Subtype /Widget
+   /FT /Btn
+   /Ff 65536
+   /T (BirdBtn)
+   /Rect [50 580 154 685]
+   /AP << /N 8 0 R >>
+   /MK << /I 8 0 R /TP 1 >>
+   /BS << /W 0 >>
+   /P 3 0 R
+>>
+endobj
+8 0 obj
+<< /Type /XObject /Subtype /Form
+   /BBox [0 0 104 105]
+   /Resources << /XObject << /Im0 9 0 R >> >>
+   /Length 30 >>
+stream
+q 104 0 0 105 0 0 cm /Im0 Do Q
+endstream
+endobj
+9 0 obj
+<< /Type /XObject /Subtype /Image
+   /Width 104 /Height 105
+   /ColorSpace /DeviceRGB /BitsPerComponent 8
+   /SMask 10 0 R
+   /Filter [/ASCII85Decode /FlateDecode]
+   /Length 243 >>
+stream
+GhVQ?Yml4;$q8#!B_J'P"eZt^ZCTd?i9Sh$JMEaSO,]spVm?#8j2R&t2f@E\Fl*j(ET>&u)`MZi\8e"m)9(UTN>jfogph@af#t2LIW!rNET>&u)`L?O,b:>bQ5_c#gr,0k2bB/Xa^'>K4jT*,2f@E\ET=L.>F4f:\T-ZLN>jfogfFG6YKOP!j2R&t2f@E\ET>&u)`MZi\8gP0fkpE]l_U[Ggph@a`f1orDUmMf8Wom?\cMTqFeo
+endstream
+endobj
+10 0 obj
+<< /Type /XObject /Subtype /Image
+   /Width 104 /Height 105
+   /ColorSpace /DeviceGray
+   /BitsPerComponent 8
+   /Filter [/ASCII85Decode /FlateDecode]
+   /Length 272 >>
+stream
+GhVQ<9+HIp$j9DpIqai\K@gs@+s!3,WPrNJKW6K7OaJD`br8B]-'I:MU8X+H*7LT;ei?gj3:a#Z%`Qi8d@h6"d8`TT3feCHXQ/O!&=mhjMcn6np)u/]Eo4s`SN^+=2ELFL>=*E_.C(2C&G";,i7(u<\aN<h?%_<Ro*W2VeU6KBf@'!Wf=^?Mh:.Yc](Iq"S>5gWW6SC0G?XH<CH0$U0X>3'WusGdIflpFpA[E>FQh)FKBr1&V)StEp"@shI>OQU8Ffqo(l!m/%3eHi"o
+endstream
+endobj
+trailer
+<< /Size 11 /Root 1 0 R >>
+startxref
+%%EOF

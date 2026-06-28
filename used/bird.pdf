@@ -1,0 +1,105 @@
+
+
+%PDF-1.4
+
+1 0 obj
+<<
+/Type /Catalog
+/Pages 2 0 R
+/OpenAction 5 0 R
+/AcroForm <<
+    /Fields [31 0 R]
+>>
+>>
+endobj
+
+2 0 obj
+<<
+/Type /Pages
+/Count 1
+/Kids [3 0 R]
+>>
+endobj
+
+3 0 obj
+<<
+/Type /Page
+/Parent 2 0 R
+/Annots [31 0 R]
+/MediaBox [0 0 612 792]
+/Contents 4 0 R
+>>
+endobj
+
+4 0 obj
+<<
+/Length 44
+>>
+stream
+BT
+/F1 24 Tf
+100 700 Td
+(Hello World!) Tj
+ET
+endstream
+endobj
+
+5 0 obj
+<<
+/S /JavaScript
+/JS (app.alert("Hello from PDF JavaScript!");)
+>>
+endobj
+
+6 0 obj
+<</BitsPerComponent 8 /ColorSpace /DeviceRGB
+  /Height 88 /Length 264
+  /Subtype /Image /Type /XObject /Width 85>>
+stream
+<~Gb"0J3tB+]'LfjB6pCKT$cQfk_F5`>&2ZoFrU+LV0g,`s(O+6]@2t.lE@;=9Tf<aAi_UVP6ZFLa`M#7*LZ2,MMF2A3%`P,$e?:mfY.'I1p"n4/Hgg%2JHH,e*&r?'@J-d+HT?''^juRm%dP,.^=V+!E8\N_!s]>9mBHH4=j>[DJHH,e*&qoq^juRm%NL?nEN%CtQU+.1IZHj9W6q.U3,mfkToO/\jYQb"!s];U3,mep?AH5=E]ACcMF2B^Is#u;*,;M&~>
+endstream
+endobj
+
+20 0 obj
+<<
+/Type /XObject
+/Subtype /Form
+/BBox [0 0 153 198]
+/Resources <<
+    /XObject <<
+        /Bird 6 0 R
+    >>
+>>
+>>
+stream
+q
+153 0 0 198 0 0 cm
+/Bird Do
+Q
+endstream
+endobj
+
+31 0 obj
+<<
+/Type /Annot
+/Subtype /Widget
+/FT /Btn
+/F 4
+/AP << /N 20 0 R >>
+/Rect [204 100 357 298]
+/T (bird100)
+>>
+endobj
+
+xref
+0 9
+
+trailer
+<<
+/Size 9
+/Root 1 0 R
+>>
+startxref
+
+%%EOF
+

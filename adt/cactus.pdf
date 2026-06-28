@@ -1,0 +1,388 @@
+%PDF-1.4
+
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R /AcroForm 6 0 R /OpenAction 15 0 R >>
+endobj
+
+2 0 obj
+<< /Type /Pages /Count 1 /Kids [3 0 R] >>
+endobj
+
+3 0 obj
+<< /Type /Page /Parent 2 0 R
+   /MediaBox [0 0 612 792]
+   /Resources << /Font << /F1 5 0 R >> >>
+   /Contents 4 0 R
+   /Annots [19 0 R 7 0 R 11 0 R 17 0 R 20 0 R 24 0 R]
+>>
+endobj
+
+4 0 obj
+<< >>
+stream
+% BT /F1 12 Tf 250 692 Td (Completely normal pdf) Tj ET
+q
+0.95 0.95 0.95 rg   % fill color (light gray)
+30 450 550 200 re  % x y width height rectangle
+f                   % fill and stroke
+
+% dashed horizon line
+0.4 0.4 0.4 RG        % dark gray stroke color
+0.5 w                  % line width
+[4 3] 0 d             % dash pattern: 4pt on, 3pt off
+30 459 m              % move to start
+580 459 l             % line to end
+S                      % stroke
+Q
+endstream
+endobj
+
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+
+6 0 obj
+<< /Fields [7 0 R 11 0 R 17 0 R 19 0 R 20 0 R 24 0 R] /DR << /Font << /F1 5 0 R >> >> >>
+endobj
+
+7 0 obj
+<< /Type /Annot /Subtype /Widget
+   /FT /Btn
+   /Ff 65536
+   /T (BirdBtn1)
+   /Rect [50 460 86 500]
+   /AP << /N 8 0 R >>
+   /MK << /I 8 0 R /TP 1 >>
+   /BS << /W 0 >>
+   /P 3 0 R
+>>
+endobj
+
+8 0 obj
+<< /Type /XObject /Subtype /Form
+   /BBox [0 0 88 85]
+   /Resources << /XObject << /Im0 9 0 R >> >>
+   /Length 28 >>
+stream
+q 88 0 0 85 0 0 cm /Im0 Do Q
+endstream
+endobj
+
+9 0 obj
+<< /Type /XObject /Subtype /Image
+   /Width 88 /Height 85
+   /ColorSpace /DeviceRGB /BitsPerComponent 8
+   /SMask 10 0 R
+   /Filter [/ASCII85Decode /FlateDecode]
+   /Length 229 >>
+stream
+GhVQ<_$to;$p`3$U>l0YGVr>.7Ot/#VZW0-+qW/![8KRK3f=(F%NIHIi4smG#7__5E8\N_!s];U3,mepCmgX=aZaXO_ppn1E8\N_!s]>)4,eVQjM6<K#7__5gip7hqqX5Ni4smG#7fX7."dc_YJbto#7__5E8\N_!s];U3,lrSWl0HUcOR?G3H3olJO<XsVgP)I^N&2IJHH,e*;XZrI^b/p`dn5Is#=g7C9#_
+endstream
+endobj
+
+10 0 obj
+<< /Type /XObject /Subtype /Image
+   /Width 88 /Height 85
+   /ColorSpace /DeviceGray
+   /BitsPerComponent 8
+   /Filter [/ASCII85Decode /FlateDecode]
+   /Length 163 >>
+stream
+GhVQ:5n:[Q#XhPXIqa60(Vi!U[f*Q,Bn@7ZW+RC_0t=cng='rJ#O\.*_o9UnQ5bS:dZ^32Q+`FRiDs3srj[;>kPWA?p[oO_X#Y($53fbq`LV*Nqb=5?G#3KIgf_,XTB"5@-WBWoTA7(\_0*:s%W6\1a5rn8nc3.M790
+endstream
+endobj
+
+11 0 obj
+<< /Type /Annot /Subtype /Widget
+   /FT /Btn
+   /Ff 65536
+   /T (BirdBtn2)
+   /Rect [50 460 86 500]
+   /AP << /N 12 0 R >>
+   /MK << /I 12 0 R /TP 1 >>
+   /BS << /W 0 >>
+   /P 3 0 R
+>>
+endobj
+
+12 0 obj
+<< /Type /XObject /Subtype /Form
+   /BBox [0 0 88 85]
+   /Resources << /XObject << /Im0 13 0 R >> >>
+   /Length 28 >>
+stream
+q 88 0 0 85 0 0 cm /Im0 Do Q
+endstream
+endobj
+
+13 0 obj
+<< /Type /XObject /Subtype /Image
+   /Width 88 /Height 85
+   /ColorSpace /DeviceRGB /BitsPerComponent 8
+   /SMask 14 0 R
+   /Filter [/ASCII85Decode /FlateDecode]
+   /Length 302 >>
+stream
+GhVQ=0b2)D$in*+Aa.X=&*a+lC_]Sf'ET+2bG,;i&f(PWmq_6[T-TF(Ym'?R!s]>1HEZ]Ifn@8N6X%BY!s]=u,R4f!3,mfkJHH,e*-sW(Eo4rh",E7bOokq!jUV07s(/CjEu\quNC/&JaSVMqD25CY56hZ<XrU,.7_`$`n>o!g2@f==jHu`#[2o77F5Xj-Y<u'nFD,r[>0Z"C,WKc$^k"kCG8Ul1,!5FCF6!n]KEDGhnc*X2gcG`N*;Z+_q#?N[#7gK%SuUthJ\rI1@`!ZuLUeEtgc092^gXW,'o-cL:9D;T>Q
+endstream
+endobj
+
+14 0 obj
+<< /Type /XObject /Subtype /Image
+   /Width 88 /Height 85
+   /ColorSpace /DeviceGray
+   /BitsPerComponent 8
+   /Filter [/ASCII85Decode /FlateDecode]
+   /Length 167 >>
+stream
+GhVQ:5n8E!#XhPXIq_&228D0s>!Mnu2OTdp7(nVV67gpI<:+BY]*%eu\`)Q-mcB1sE1':h\<X[jpYf.X4b)70SoaUFh"?'8bVI6+jeMe_>hhnP[D1e6G6_^!_jtp3r>^#n5FL7*ro@D1K",.]cGoOfb'oB:bAfK8"<bHB?2
+endstream
+endobj
+
+15 0 obj
+<<
+  /JS 16 0 R
+  /S /JavaScript
+>>
+
+16 0 obj
+<< >>
+stream
+
+// The Hacky wrapper
+function setInterval(cb, ms) {
+	evalStr = "(" + cb.toString() + ")();";
+	return app.setInterval(evalStr, ms);
+}
+
+var toggle = true;
+var velocity = 0;
+var is_jumping = false;
+var GROUND_Y = 460;
+var BIRD_H = 40;
+var birdY = GROUND_Y;
+
+var BirdBtn1 = this.getField("BirdBtn1");
+var BirdBtn2 = this.getField("BirdBtn2");
+
+BirdBtn1.display = display.hidden;
+
+var Cactus_1 = this.getField("Cactus_1");
+var Cactus_2 = this.getField("Cactus_2");
+var Cactus_3 = this.getField("Cactus_3");
+
+Cactus_1.display = display.hidden;
+Cactus_3.display = display.hidden;
+
+
+function on_jump_click() {
+    if (!is_jumping) {
+        velocity = 10;
+        is_jumping = true;
+    }
+}
+
+var time_clock = 0;
+var score = 0;
+var MIN_INTERVAL = 10;  // never spawn faster than this
+
+function randomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+var next_interval = randomInt(30, 50);  // first spawn interval
+
+function spawn_cactus() {
+    time_clock++;
+    if (time_clock >= next_interval) {
+        time_clock = 0;
+        var gap = randomInt(30, 50) - Math.floor(score * 0.1);
+        next_interval = Math.max(MIN_INTERVAL, gap);
+        return { spawn: true, type: randomInt(0, 1) };
+    }
+    
+    return { spawn: false, type: null };
+}
+
+function game_tick() {
+    
+    var Bg = this.getField("BgRect");
+    Bg.display = display.visible;
+
+    if (is_jumping) {
+        velocity -= 0.9;
+        birdY += velocity;
+        if (birdY <= GROUND_Y) {
+            birdY = GROUND_Y;
+            velocity = 0;
+            is_jumping = false;
+        }
+    }
+
+    // move BOTH fields to birdY always
+    var r1 = BirdBtn1.rect;
+    r1[1] = birdY;
+    r1[3] = birdY + BIRD_H;
+    BirdBtn1.rect = r1;
+
+    var r2 = BirdBtn2.rect;
+    r2[1] = birdY;
+    r2[3] = birdY + BIRD_H;
+    BirdBtn2.rect = r2;
+
+    if (!is_jumping) {
+        toggle = !toggle;
+        BirdBtn1.display = toggle ? display.visible : display.hidden;
+        BirdBtn2.display = toggle ? display.hidden  : display.visible;
+    }
+    Bg.display = display.hidden;
+}
+
+setInterval(game_tick, 100);
+
+endstream
+endobj
+
+17 0 obj
+<<
+/Type /Annot
+/Subtype /Widget
+/FT /Btn                          
+/T (JumpBtn)                      
+/P 3 0 R                          
+/Rect [30 450 580 650]            
+/F 4                              
+/Ff 65536                         
+/H /N    
+/BS << /W 0 /S /S >>                         
+/MK << /BC [] /BG [] >>              
+/A <<                             
+/Type /Action
+/S /JavaScript
+/JS 18 0 R        
+>>
+endobj
+
+18 0 obj
+<< >>
+stream
+on_jump_click();
+endstream
+endobj
+
+19 0 obj
+<<
+/Type /Annot
+/Subtype /Widget
+/FT /Btn
+/Ff 1
+/T (BgRect)
+/P 3 0 R
+/Rect [0 0 612 792]
+/BS << /W 0 >>
+/MK << /BG [1 1 1] /BC [] >>
+>>
+endobj
+
+% Cactus_1
+
+20 0 obj
+<< /Type /Annot /Subtype /Widget
+   /FT /Btn
+   /Ff 65536
+   /T (Cactus_1)
+   /Rect [580 454 610 494]
+   /AP << /N 21 0 R >>
+   /MK << /I 21 0 R /TP 1 >>
+   /BS << /W 0 >>
+   /P 3 0 R
+>>
+endobj
+
+21 0 obj
+<< /Type /XObject /Subtype /Form
+   /BBox [0 0 50 105]
+   /Resources << /XObject << /Im0 22 0 R >> >>
+   /Length 29 >>
+stream
+q 50 0 0 105 0 0 cm /Im0 Do Q
+endstream
+endobj
+
+22 0 obj
+<< /Type /XObject /Subtype /Image
+   /Width 50 /Height 105
+   /ColorSpace /DeviceRGB /BitsPerComponent 8
+   /SMask 23 0 R
+   /Filter [/ASCII85Decode /FlateDecode]
+   /Length 140 >>
+stream
+GhVQ<TbRPM#XC\!`;O>R=pu;`TD']m+qV"[/f$sOU8"BVU8"CY7s/DN.OqG?<*:b%.Olnt.Olnt.Olnt.OlntWX>c<[lZ&hWY\ZaWDlhr<)cgr<)cgr<)d@EdbQL?MMd9`P-e9q-Al^g
+endstream
+endobj
+
+23 0 obj
+<< /Type /XObject /Subtype /Image
+   /Width 50 /Height 105
+   /ColorSpace /DeviceGray
+   /BitsPerComponent 8
+   /Filter [/ASCII85Decode /FlateDecode]
+   /Length 140 >>
+stream
+GhVQ95mkCM$q/Lus3d3NKU*lYBL&8@QHI[d8Mkd,ba=ct(lodNLbhH]HUM2:,/!f"7D+OD+:s#<lZd(9$GVoX68e:4;M8NMfr'YYW,nTG%g%;IFGa>gia/a0lFPW7H<mG_KRClF/#tKi
+endstream
+endobj
+
+% Cactus_3
+
+24 0 obj
+<< /Type /Annot /Subtype /Widget
+   /FT /Btn
+   /Ff 65536
+   /T (Cactus_3)
+   /Rect [580 454 616 494]
+   /AP << /N 25 0 R >>
+   /MK << /I 25 0 R /TP 1 >>
+   /BS << /W 0 >>
+   /P 3 0 R
+>>
+endobj
+
+25 0 obj
+<< /Type /XObject /Subtype /Form
+   /BBox [0 0 104 105]
+   /Resources << /XObject << /Im0 26 0 R >> >>
+   /Length 30 >>
+stream
+q 104 0 0 105 0 0 cm /Im0 Do Q
+endstream
+endobj
+
+26 0 obj
+<< /Type /XObject /Subtype /Image
+   /Width 104 /Height 105
+   /ColorSpace /DeviceRGB /BitsPerComponent 8
+   /SMask 27 0 R
+   /Filter [/ASCII85Decode /FlateDecode]
+   /Length 243 >>
+stream
+GhVQ?Yml4;$q8#!B_J'P"eZt^ZCTd?i9Sh$JMEaSO,]spVm?#8j2R&t2f@E\Fl*j(ET>&u)`MZi\8e"m)9(UTN>jfogph@af#t2LIW!rNET>&u)`L?O,b:>bQ5_c#gr,0k2bB/Xa^'>K4jT*,2f@E\ET=L.>F4f:\T-ZLN>jfogfFG6YKOP!j2R&t2f@E\ET>&u)`MZi\8gP0fkpE]l_U[Ggph@a`f1orDUmMf8Wom?\cMTqFeo
+endstream
+endobj
+
+27 0 obj
+<< /Type /XObject /Subtype /Image
+   /Width 104 /Height 105
+   /ColorSpace /DeviceGray
+   /BitsPerComponent 8
+   /Filter [/ASCII85Decode /FlateDecode]
+   /Length 272 >>
+stream
+GhVQ<9+HIp$j9DpIqai\K@gs@+s!3,WPrNJKW6K7OaJD`br8B]-'I:MU8X+H*7LT;ei?gj3:a#Z%`Qi8d@h6"d8`TT3feCHXQ/O!&=mhjMcn6np)u/]Eo4s`SN^+=2ELFL>=*E_.C(2C&G";,i7(u<\aN<h?%_<Ro*W2VeU6KBf@'!Wf=^?Mh:.Yc](Iq"S>5gWW6SC0G?XH<CH0$U0X>3'WusGdIflpFpA[E>FQh)FKBr1&V)StEp"@shI>OQU8Ffqo(l!m/%3eHi"o
+endstream
+endobj
+
+trailer
+<< /Size 30 /Root 1 0 R >>
+
+%%EOF
