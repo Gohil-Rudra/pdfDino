@@ -24,7 +24,7 @@ stream
 % BT /F1 12 Tf 250 692 Td (Completely normal pdf) Tj ET
 q
 0.95 0.95 0.95 rg   % fill color (light gray)
-30 450 550 200 re  % x y width height rectangle
+30 10 550 200 re  % x y width height rectangle
 f                   % fill and stroke
 Q
 endstream
@@ -43,7 +43,7 @@ endobj
    /FT /Btn
    /Ff 65536
    /T (BirdBtn1)
-   /Rect [50 460 86 500]
+   /Rect [50 20 86 60]
    /AP << /N 8 0 R >>
    /MK << /I 8 0 R /TP 1 >>
    /BS << /W 0 >>
@@ -90,7 +90,7 @@ endobj
    /FT /Btn
    /Ff 65536
    /T (BirdBtn2)
-   /Rect [50 460 86 500]
+   /Rect [50 20 86 60]
    /AP << /N 12 0 R >>
    /MK << /I 12 0 R /TP 1 >>
    /BS << /W 0 >>
@@ -153,7 +153,7 @@ function setInterval(cb, ms) {
 var toggle = true;
 var velocity = 0;
 var is_jumping = false;
-var GROUND_Y = 460;
+var GROUND_Y = 20;
 var BIRD_H = 40;
 var birdY = GROUND_Y;
 
@@ -354,13 +354,15 @@ function update_score_display() {
 }
 
 function game_over(){
-   
+
+    this.getField("BgRect").display = display.hidden;
+    this.getField("JumpBtn").display = display.hidden;
+
     BirdBtn1.display = display.hidden;
     BirdBtn2.display = display.hidden;
     BirdBtn3.display = display.visible;
 
     app.clearInterval(gameInterval);
-    this.getField("JumpBtn").display = display.hidden;
     this.getField("Restart").display = display.visible;
     this.getField("Restart").setFocus();
     
@@ -439,8 +441,6 @@ function restart() {
 
     this.getField("Restart").display = display.hidden;
     this.getField("JumpBtn").display = display.visible;
-    this.getField("JumpBtn").setFocus();
-
 
     if (typeof gameInterval !== "undefined") {
         app.clearInterval(gameInterval);
@@ -492,7 +492,7 @@ endobj
 /FT /Btn                          
 /T (JumpBtn)                      
 /P 3 0 R                          
-/Rect [30 450 580 650]            
+/Rect [30 10 580 210]            
 /F 4                              
 /Ff 65536                         
 /H /N    
@@ -520,7 +520,7 @@ endobj
 /Ff 1
 /T (BgRect)
 /P 3 0 R
-/Rect [0 0 612 792]
+/Rect [0 -440 612 352]
 /BS << /W 0 >>
 /MK << /BG [1 1 1] /BC [] >>
 >>
@@ -533,7 +533,7 @@ endobj
    /FT /Btn
    /Ff 65536
    /T (Cactus_1)
-   /Rect [580 450 610 490]
+   /Rect [580 10 610 50]
    /AP << /N 21 0 R >>
    /MK << /I 21 0 R /TP 1 >>
    /BS << /W 0 >>
@@ -582,7 +582,7 @@ endobj
    /FT /Btn
    /Ff 65536
    /T (Cactus_3)
-   /Rect [580 450 616 490]
+   /Rect [580 10 616 50]
    /AP << /N 25 0 R >>
    /MK << /I 25 0 R /TP 1 >>
    /BS << /W 0 >>
@@ -630,7 +630,7 @@ endobj
    /FT /Btn
    /Ff 65536
    /T (Cactus_1_1)
-   /Rect [580 450 610 490]
+   /Rect [580 10 610 50]
    /AP << /N 21 0 R >>
    /MK << /I 21 0 R /TP 1 >>
    /BS << /W 0 >>
@@ -644,7 +644,7 @@ endobj
    /FT /Btn
    /Ff 65536
    /T (Cactus_3_3)
-   /Rect [580 450 616 490]
+   /Rect [580 10 616 50]
    /AP << /N 25 0 R >>
    /MK << /I 25 0 R /TP 1 >>
    /BS << /W 0 >>
@@ -659,7 +659,7 @@ endobj
   /FT /Btn /Ff 1
   /T (MaskLeft)
   /P 3 0 R
-  /Rect [0 450 30 650]
+  /Rect [0 10 30 210]
   /BS << /W 0 >>
   /MK << /BG [1 1 1] /BC [] >>
 >>
@@ -672,7 +672,7 @@ endobj
   /FT /Btn /Ff 1
   /T (MaskRight)
   /P 3 0 R
-  /Rect [580 450 612 650]
+  /Rect [580 10 612 210]
   /BS << /W 0 >>
   /MK << /BG [1 1 1] /BC [] >>
 >>
@@ -685,7 +685,7 @@ endobj
    /FT /Btn
    /Ff 65536
    /T (Cactus_2)
-   /Rect [580 454 616 494]
+   /Rect [580 14 616 54]
    /AP << /N 33 0 R >>
    /MK << /I 33 0 R /TP 1 >>
    /BS << /W 0 >>
@@ -734,7 +734,7 @@ endobj
    /FT /Btn
    /Ff 65536
    /T (Cactus_2_2)
-   /Rect [580 454 616 494]
+   /Rect [580 14 616 54]
    /AP << /N 33 0 R >>
    /MK << /I 33 0 R /TP 1 >>
    /BS << /W 0 >>
@@ -749,7 +749,7 @@ endobj
    /FT /Btn
    /Ff 65536
    /T (Ground)
-   /Rect [30 449 580 469]
+   /Rect [30 9 580 29]
    /AP << /N 38 0 R >>
    /MK << /I 38 0 R /TP 1 >>
    /BS << /W 0 >>
@@ -798,7 +798,7 @@ endobj
    /FT /Btn
    /Ff 65536
    /T (BirdBtn3)
-   /Rect [50 460 86 500]
+   /Rect [50 20 86 60]
    /AP << /N 42 0 R >>
    /MK << /I 42 0 R /TP 1 >>
    /BS << /W 0 >>
@@ -847,7 +847,7 @@ endobj
    /FT /Btn
    /Ff 65536
    /T (Cloud1)
-   /Rect [580 600 672 628]
+   /Rect [580 160 672 188]
    /AP << /N 46 0 R >>
    /MK << /I 46 0 R /TP 1 >>
    /BS << /W 0 >>
@@ -894,7 +894,7 @@ endobj
    /FT /Btn
    /Ff 65536
    /T (Cloud2)
-   /Rect [580 605 672 633]
+   /Rect [580 165 672 193]
    /AP << /N 46 0 R >>
    /MK << /I 46 0 R /TP 1 >>
    /BS << /W 0 >>
@@ -907,7 +907,7 @@ endobj
    /FT /Btn
    /Ff 65536
    /T (Cloud1_1)
-   /Rect [580 600 672 628]
+   /Rect [580 160 672 188]
    /AP << /N 46 0 R >>
    /MK << /I 46 0 R /TP 1 >>
    /BS << /W 0 >>
@@ -920,7 +920,7 @@ endobj
    /FT /Btn
    /Ff 65536
    /T (Cloud2_2)
-   /Rect [580 605 672 633]
+   /Rect [580 165 672 193]
    /AP << /N 46 0 R >>
    /MK << /I 46 0 R /TP 1 >>
    /BS << /W 0 >>
@@ -936,7 +936,7 @@ endobj
 /Subtype /Widget
 /FT /Btn
 /T (Restart)
-/Rect [285 530 325 570]
+/Rect [285 90 325 130]
 /F 4 
 /Ff 65536   
 /AP << /N 53 0 R >>
@@ -997,7 +997,7 @@ endobj
   /FT /Tx
   /T (ScoreDisplay)
   /P 3 0 R
-  /Rect [40 630 190 650]
+  /Rect [40 190 190 210]
   /BS << /W 0 >>
   /MK << /BG [0.95 0.95 0.95] /BC [] >>
   /DA (/F1 12 Tf 0 0 0 rg)
@@ -1014,7 +1014,7 @@ endobj
   /FT /Tx
   /T (HiScoreDisplay)
   /P 3 0 R
-  /Rect [40 608 190 628]
+  /Rect [40 168 190 188]
   /BS << /W 0 >>
   /MK << /BG [0.95 0.95 0.95] /BC [] >>
   /DA (/F1 12 Tf 0 0 0 rg)
